@@ -1,0 +1,325 @@
+/* RESET & CSS VARIABLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.app-header {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon { font-size: 2rem; }
+.logo-text h1 { font-size: 1.25rem; color: #38bdf8; }
+.logo-text p { font-size: 0.75rem; color: #94a3b8; }
+
+.header-progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+}
+
+.progress-label {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: #38bdf8;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: #090d16;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #22c55e;
+  transition: width 0.3s ease;
+}
+
+/* BOTONES */
+.btn {
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn:active { transform: scale(0.97); }
+.btn-primary { background-color: #38bdf8; color: #0f172a; }
+.btn-success { background-color: #22c55e; color: #0f172a; }
+.btn-warning { background-color: #f59e0b; color: #0f172a; }
+.btn-secondary { background-color: #334155; color: #f8fafc; }
+.btn-outline { background-color: transparent; border: 1px solid #38bdf8; color: #38bdf8; }
+.btn-docente { background-color: #eab308; color: #0f172a; }
+.btn-block { width: 100%; display: block; }
+.btn-small { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+
+/* CONTENEDOR PRINCIPAL */
+.main-content {
+  padding: 1.5rem;
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.card-login {
+  max-width: 500px;
+  margin: 3rem auto;
+}
+
+.form-group { margin-bottom: 1rem; }
+.form-row { display: flex; gap: 1rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+  color: #94a3b8;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #090d16;
+  color: #f8fafc;
+}
+
+/* LAYOUT DE NIVEL INTERACTIVO */
+.level-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .level-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.badge-gold {
+  background-color: #eab308;
+  color: #0f172a;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.code-textarea {
+  width: 100%;
+  height: 250px;
+  background-color: #090d16;
+  color: #22c55e;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  padding: 1rem;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.terminal-container {
+  margin-top: 1rem;
+  background-color: #090d16;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background-color: #334155;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.terminal-body {
+  padding: 0.8rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  min-height: 80px;
+  white-space: pre-wrap;
+}
+
+.hint-display {
+  background-color: #090d16;
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+/* MODALES */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(15, 23, 42, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content.modal-xl { max-width: 1100px; }
+
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #f8fafc;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #334155;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* TABLAS Y PANELES */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.data-table th, .data-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #cbd5e1;
+  font-size: 0.85rem;
+  color: #000000 !important;
+}
+
+.data-table th {
+  background-color: #f1f5f9;
+  font-weight: bold;
+}
+
+.metrics-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.metric-card {
+  background-color: #090d16;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.metric-card .m-title {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.metric-card .m-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* REPORTE PARA PDF E IMPRESIÓN */
+#reporteContenidoImprimible {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+#reporteContenidoImprimible p, 
+#reporteContenidoImprimible span, 
+#reporteContenidoImprimible div,
